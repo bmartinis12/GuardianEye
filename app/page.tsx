@@ -54,7 +54,7 @@ const HomePage = () => {
   useEffect(() => {
 
     if (webcamRef && webcamRef.current) {
-      const stream = (webcamRef.current.video as any).captureStream();
+      const stream = (webcamRef.current.video as any).captureStream() ? (webcamRef.current.video as any).captureStream() : (webcamRef.current.video as any).mozCaptureStream();
 
       if (stream) {
         mediaRecorderRef.current = new MediaRecorder(stream);
